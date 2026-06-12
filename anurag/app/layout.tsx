@@ -10,26 +10,15 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Premium Developer Portfolio',
-  description: 'Crafting exceptional digital experiences with cutting-edge technology',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '',
-  },
+  title: 'Anurag - Developer Portfolio',
+  description: 'An experienced developer with a passion for building exceptional digital experiences.',
+  keywords: [
+    'developer',
+    'portfolio',
+    'developer portfolio',
+    'developer portfolio website',
+    'developer portfolio website',
+  ],
 }
 
 export default function RootLayout({
