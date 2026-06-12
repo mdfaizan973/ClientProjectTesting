@@ -32,10 +32,10 @@ export default function Education() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold bg-primary bg-clip-text text-transparent">
               Education & Learning
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-accent to-primary rounded-full" />
+            <div className="h-1 w-24 bg-primary rounded-full" />
           </motion.div>
 
           {/* Timeline */}
@@ -48,23 +48,23 @@ export default function Education() {
               >
                 {/* Timeline line */}
                 {index !== PORTFOLIO_DATA?.education?.length - 1 && (
-                  <div className="absolute left-6 top-20 w-1 h-20 bg-gradient-to-b from-primary to-accent opacity-50" />
+                  <div className="absolute left-6 top-20 w-1 h-20 bg-primary opacity-50" />
                 )}
 
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent p-0.5">
+                <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-primary p-0.5">
                   <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-primary to-accent" />
+                    <div className="w-4 h-4 rounded-full bg-primary" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="ml-24 p-4 rounded-xl border border-border/50 hover:border-accent/50  hover:shadow-lg">
+                <div className="ml-24 p-4 rounded-xl border border-border/50 hover:border-primary/50  hover:shadow-lg">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
-                        <span className="flex items-center justify-center w-8 h-8 border border-accent rounded-full">
-                          <BookOpen className="w-5 h-5 text-accent" />
+                        <span className="flex items-center justify-center w-8 h-8 border border-primary rounded-full">
+                          <BookOpen className="w-5 h-5 text-primary" />
                         </span>
                         {edu.degree}
                       </h3>
@@ -77,15 +77,17 @@ export default function Education() {
                     </span>
                   </div>
 
-                  <p className="text-muted-foreground mb-2">
-                    {edu.institution}
-                  </p>
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                    <div>
+                      <p className="text-muted-foreground mb-2">
+                        {edu.institution}
+                      </p>
 
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {edu.description}
-                  </p>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {edu.description}
+                      </p>
+                    </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                         Grade
@@ -94,6 +96,9 @@ export default function Education() {
                         {edu.grade}
                       </p>
                     </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 border-t border-border/50 pt-1">
                     <div>
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                         Key Courses

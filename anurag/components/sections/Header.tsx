@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { PORTFOLIO_DATA } from '@/lib/constants';
-import { Menu, X } from 'lucide-react';
+import { DownloadIcon, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,6 +36,11 @@ export default function Header() {
   const itemVariants = {
     hidden: { opacity: 0, y: -8 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+  const handleDownload = () => {
+    window.open(PORTFOLIO_DATA.resume, '_blank');
+    return false;
   };
 
   return (
@@ -104,10 +109,16 @@ export default function Header() {
           {/* CTA button */}
           <motion.a
             variants={itemVariants}
-            href="#contact"
-            className="ml-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            // href="#contact"
+            className="ml-4 cursor-pointer px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity"
+            onClick={() => {
+              handleDownload();
+            }}
           >
-            Hire Me
+            {/* download icon */}
+            <span className="flex items-center gap-2">
+              Resume <DownloadIcon className="w-4 h-4 text-primary-foreground" />
+            </span> 
           </motion.a>
         </motion.div>
 
@@ -149,10 +160,14 @@ export default function Header() {
           ))}
           <a
             href="#contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 px-4 py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold text-center hover:opacity-90 transition-opacity"
+            onClick={() => {
+              handleDownload();
+            }}
+            className="mt-2 px-4 cursor-pointer py-3 rounded-xl bg-primary text-primary-foreground text-sm font-semibold text-center hover:opacity-90 transition-opacity"
           >
-            Hire Me
+            <span className="flex items-center gap-2">
+              Resume <DownloadIcon className="w-4 h-4 text-primary-foreground" />
+            </span>
           </a>
         </div>
       </motion.div>

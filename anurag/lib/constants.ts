@@ -1,19 +1,19 @@
 export const PORTFOLIO_DATA = {
-  name: 'Md Faizan',
+  name: 'Anurag',
   title: 'Full-Stack Developer & Creative Technologist',
   shortBio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.',
-  email: 'faizan@gmail.com',
+  email: 'anurag@gmail.com',
   location: 'India',
   phone : '916201855200',
-  
+  contactMessage: 'Whether it\'s a full-time role, freelance project, or just a chat about tech — my inbox is always open. I\'ll get back to you within 24 hours.',
   navigation: ['About', 'Skills', 'Experience', 'Projects', 'Education', 'Certifications', 'Contact'],
+  resume: 'https://drive.google.com/file/d/1uNP6is2xscGD8xRgcvNRBtDquXkyv7Os/view?usp=sharing',
 
-  
   socials: [
     { name: 'GitHub', url: '#', icon: 'github' },
     { name: 'LinkedIn', url: '#', icon: 'linkedin' },
     { name: 'Twitter', url: '#', icon: 'twitter' },
-    { name: 'Email', url: 'mailto:faizan@gmail.com', icon: 'mail' },
+    { name: 'Email', url: 'mailto:anurag@gmail.com', icon: 'mail' },
   ],
   
   about: {

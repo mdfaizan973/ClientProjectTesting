@@ -19,8 +19,8 @@ export default function Page() {
         <Hero />
         <About />
         <Skills />
-        <Experience />
         <Projects />
+        <Experience />
         <Education />
         <Certifications />
         <Contact />

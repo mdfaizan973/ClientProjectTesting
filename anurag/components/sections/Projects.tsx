@@ -33,9 +33,13 @@ export default function Projects() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="space-y-4 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              Featured Projects
+
+            <h2 className="text-3xl md:text-4xl font-bold bg-primary bg-clip-text text-transparent">
+            Featured Projects
             </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              A curated collection of projects I've worked on
+            </p>
             <div className="flex justify-center gap-2 pt-2">
               <div className="h-1 w-8 bg-primary rounded-full" />
               <div className="h-1 w-8 bg-accent rounded-full" />

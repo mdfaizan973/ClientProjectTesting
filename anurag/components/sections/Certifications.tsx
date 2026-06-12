@@ -58,15 +58,15 @@ export default function Certifications() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="space-y-3">
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-bold bg-primary bg-clip-text text-transparent">
               Certifications & Credentials
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-accent to-primary rounded-full" />
+            <div className="h-1 w-24 bg-primary rounded-full" />
           </motion.div>
 
           {/* Category filter and grid */}
           <motion.div variants={containerVariants}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 group-hover:grid-cols-4 transition-all duration-300">
               {PORTFOLIO_DATA.certifications.map((cert) => (
                 <motion.div
                   key={cert.id}
@@ -88,7 +88,7 @@ export default function Certifications() {
                         </span>
                       </div>
 
-                      <h3 className="text-lg font-bold text-foreground line-clamp-2 mb-2">
+                      <h3 className="text-lg font-bold text-foreground line-clamp-2 mb-2 group-hover:text-primary transition-all duration-300">
                         {cert.title}
                       </h3>
                       <p className="text-sm text-muted-foreground">

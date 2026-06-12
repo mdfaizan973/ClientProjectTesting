@@ -75,12 +75,6 @@ export default function Contact() {
       value: PORTFOLIO_DATA.location,
       href: null,
     },
-    {
-      icon: <LinkedInIcon />,
-      label: 'LinkedIn',
-      value: 'Connect with me',
-      href: PORTFOLIO_DATA.socials.find((s) => s.name === 'LinkedIn')?.url,
-    },
   ];
 
   const socialIcons: Record<string, React.ReactNode> = {
@@ -109,15 +103,12 @@ export default function Contact() {
 
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center space-y-4">
-            <span className="text-sm font-semibold text-primary uppercase tracking-widest">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
               Get In Touch
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Let&apos;s Work{' '}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Together
-              </span>
             </h2>
+
+            <div className="h-1 w-24 mx-auto bg-primary rounded-full" />
 
           </motion.div>
 
@@ -125,22 +116,23 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
             {/* LEFT */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            <motion.div variants={itemVariants} className="space-y-6">
 
               {/* tagline card */}
-              <div className="p-8 rounded-2xl border border-border space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Send className="w-5 h-5 text-primary" />
+              <div className="p-5 rounded-2xl border border-border space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Send className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Open to new opportunities
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  Open to new opportunities
-                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Whether it&apos;s a full-time role, freelance project, or just a chat about tech —
-                  my inbox is always open. I&apos;ll get back to you within 24 hours.
+                  {PORTFOLIO_DATA.contactMessage}
                 </p>
                 <div className="flex items-center gap-2 text-primary font-semibold text-sm">
-                  <span>Available for work</span>
+                  <span>Available for new projects</span>
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 </div>
               </div>
@@ -150,10 +142,10 @@ export default function Contact() {
                 {contactInfo.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 p-4 rounded-xl border border-border bg-white/50 dark:bg-background/50 hover:border-primary transition-all group"
+                    className="flex items-center gap-4 p-3 rounded-xl border border-border bg-white/50 dark:bg-background/50 hover:border-primary transition-all group"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                      {item.icon}
+                      {item?.icon ?? <span className="w-4 h-4" />}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-xs text-muted-foreground">{item.label}</p>
@@ -173,6 +165,10 @@ export default function Contact() {
                     )}
                   </div>
                 ))}
+
+                {contactInfo.length < 3 &&
+                  <SocialContact socials={PORTFOLIO_DATA.socials} />
+                }
               </div>
 
             </motion.div>
@@ -252,21 +248,9 @@ export default function Contact() {
               </form>
 
               {/* socials */}
-              <div className="space-y-3 mt-6 mb-2">
-                <p className="text-sm font-medium text-muted-foreground">Find me on</p>
-                <div className="flex gap-3">
-                  {PORTFOLIO_DATA.socials.map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.url}
-                      title={social.name}
-                      className="w-10 h-10 rounded-xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all"
-                    >
-                      {socialIcons[social.name] ?? <ArrowRight className="w-4 h-4" />}
-                    </a>
-                  ))}
-                </div>
-              </div>
+              {contactInfo.length < 2 &&
+                <SocialContact socials={PORTFOLIO_DATA.socials} />
+              }
 
 
             </motion.div>
@@ -276,4 +260,40 @@ export default function Contact() {
       </div>
     </section>
   );
+}
+
+
+const SocialContact = ({ socials }: { socials: any[] }) => {
+
+
+  const socialIcons: Record<string, React.ReactNode> = {
+    GitHub: <GitHubIcon />,
+    LinkedIn: <LinkedInIcon />,
+    Twitter: <TwitterIcon />,
+    Email: <EmailIcon />,
+  };
+
+  return (
+    <>
+      {
+        socials.length > 0 && (
+          <div className="space-y-3 mt-6 mb-2">
+            <p className="text-sm font-medium text-muted-foreground">Find me on</p>
+            <div className="flex gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  title={social.name}
+                  className="w-10 h-10 rounded-xl border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all"
+                >
+                  {socialIcons[social.name] ?? <ArrowRight className="w-4 h-4" />}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </>
+  )
 }

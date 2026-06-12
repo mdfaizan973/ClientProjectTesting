@@ -31,10 +31,10 @@ export default function Experience() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-accent bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-4xl font-bold bg-primary bg-clip-text text-transparent">
               Experience
             </h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-primary to-accent rounded-full" />
+            <div className="h-1 w-24 bg-primary rounded-full" />
           </motion.div>
 
           {/* Timeline */}
@@ -58,7 +58,7 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <p className="text-lg text-accent font-semibold">
+                  <p className="text-lg text-primary font-semibold">
                     {exp.company}
                   </p>
 
