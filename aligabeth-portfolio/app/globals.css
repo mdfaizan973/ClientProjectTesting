@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #FAF6EF;          /* soft cream */
+  --color-surface: #FFFFFF;     /* card surface */
+  --color-surface-alt: #F1ECE2; /* warm beige panel */
+  --color-primary: #2B2925;     /* charcoal */
+  --color-accent: #6E7C5E;      /* muted sage */
+  --color-accent-deep: #5A5C3F; /* dusty olive */
+  --color-text: #2B2925;        /* charcoal */
+  --color-muted: #8C8478;       /* warm taupe */
+  --color-line: rgba(43, 41, 37, 0.10);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
+  --color-accent-deep: var(--color-accent-deep);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+
+  --font-display: "Fraunces", serif;
+  --font-body: "Source Serif 4", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif-body {
+  font-family: var(--font-body);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+}
+
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  font-weight: 600;
+  color: var(--color-accent-deep);
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, var(--color-line) 20%, var(--color-line) 80%, transparent);
+}
+
+.paper-texture {
+  background-image: radial-gradient(circle at 1px 1px, rgba(43,41,37,0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
